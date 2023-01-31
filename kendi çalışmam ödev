@@ -1,0 +1,48 @@
+public Button YilanBuyut()
+{
+
+    Button yeniKutu = new Button();
+
+    if (renkliYilan)
+    {
+        Renklendir();
+        yeniKutu.BackColor = Color.FromArgb(x, y, z);
+    }
+    else
+    {
+        yeniKutu.BackColor = yilan.Last().BackColor;
+    }
+
+
+
+    yeniKutu.Width = yeniKutu.Height = yilan.Last().Width;
+    yeniKutu.Top = yilan.Last().Top;
+    yeniKutu.Left = yilan.Last().Left;
+    yeniKutu.Enabled = false;
+                
+                
+    switch (yilaninYonu)
+    {
+        case Yon.YUKARI:
+            yeniKutu.Top += adim;
+            break;
+        case Yon.ASAGI:
+            yeniKutu.Top -= adim;
+            break;
+        case Yon.SAG:
+            yeniKutu.Left += adim;
+            break;
+        case Yon.SOL:
+            yeniKutu.Left -= adim;
+            break;
+    }
+
+    yeniKutu.Text = (yilan.Count() + 1) + "";
+
+                
+
+    yilan.Add(yeniKutu);
+
+
+    return yeniKutu;
+}
